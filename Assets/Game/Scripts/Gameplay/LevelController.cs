@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Jackal;
 using UnityEngine;
-using static UnityEditor.ShaderData;
 
 public class LevelController : Singleton<LevelController>
 {

@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-    [Header("Scenes")]
-    [SerializeField] private SceneAsset gameScene;
-    [SerializeField] private SceneAsset editorScene;
-    [SerializeField] private SceneAsset startScene;
-
+    
     private const string LEVEL_KEY = "CurrentLevel";
     public int CurrentLevel => PlayerPrefs.GetInt(LEVEL_KEY, 1);
 
@@ -35,7 +30,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Game.Sound.PlayLevelBGM();
-        SceneManager.LoadScene(gameScene.name);
+        SceneManager.LoadScene("Game/Scenes/Gameplay");
     }
 
     public bool DoesLevelExist(int levelNumber)
@@ -47,12 +42,11 @@ public class GameManager : MonoBehaviour
 
     public void OpenLevelEditor()
     {
-        SceneManager.LoadScene(editorScene.name);
     }
 
     public void OpenMainMenu()
     {
-        SceneManager.LoadScene(startScene.name);
+        SceneManager.LoadScene("Game/Scenes/Start");
     }
 
     public void CompleteLevel(int levelNumber)
